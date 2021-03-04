@@ -7,11 +7,13 @@ class Martix:
 	def __str__(self):
 		row = ""
 		if self.isextend:
-			for i in range(self.rank // 2):
-				row += str(self.numbers[i]) + ' '
-			row += '| '
-			for i in range(self.rank // 2, self.rank):
-				row += str(self.numbers[i]) + ' '
+			for item in self.numbers:
+				for i in range(self.rank // 2):
+					row.join(str(item[i]) + ' ')
+				row.join('| ')
+				for i in range(self.rank // 2, self.rank):
+					row.join(str(item[i]) + ' ')
+				row.join('\n')
 		else:
 			for i in range(self.rank):
 				row += str(self.numbers[i]) + ' '

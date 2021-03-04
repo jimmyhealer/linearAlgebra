@@ -6,7 +6,7 @@ class Plug:
   zero = Fraction(0, 1)
 
 def inputMartix(rank: int, display=False, displayText=None, isextend=False):
-  martix = []
+  numbers = []
   for _ in range(rank):
     temp = input().split()
     number = []
@@ -21,7 +21,9 @@ def inputMartix(rank: int, display=False, displayText=None, isextend=False):
           number.append(Fraction(tempnumber[0], tempnumber[1]))
       else:
         number.append(Fraction(int(i.split('/')[0]), 1))
-    martix.append(Martix(number, isextend=isextend))
+    numbers.append(number)
+  martix = Martix(numbers, isextend=isextend)
+  
   if display:
     if displayText: print(displayText)
     printMartix(martix)
