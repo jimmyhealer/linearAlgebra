@@ -39,7 +39,14 @@ def inverse(martix):
   return [Martix([martix[1][1] * det, -martix[0][1] * det]),
           Martix([-martix[1][0] * det, martix[0][0] * det])]
 
+def ismartixeq(martix, martix2):
+  for i in range(len(martix)):
+    if martix[i] != martix2[i]:
+      return 0
+    return 1
+
 def isabequalba(martix, martix2, rank=2):
+  if ismartixeq(martix, martix2): return 1
   if rank == 2:
     q = inverse(martix)
     for i in range(len(martix)):
