@@ -1,3 +1,5 @@
+from tools.fraction import Fraction
+
 class Martix:
 	def __init__(self, numbers, isextend=False):
 		self.numbers = numbers
@@ -5,16 +7,26 @@ class Martix:
 		self.rank = len(numbers)
 
 	def __str__(self):
-		row = ""
+		row = ''
 		if self.isextend:
-			for i in range(self.rank // 2):
-				row += str(self.numbers[i]) + ' '
-			row += '| '
-			for i in range(self.rank // 2, self.rank):
-				row += str(self.numbers[i]) + ' '
+			for item in self.numbers:
+				for i in range(self.rank // 2):
+					row.join(str(item[i]) + ' ')
+				row.join('| ')
+				for i in range(self.rank // 2, self.rank):
+					row.join(str(item[i]) + ' ')
+				row.join('\n')
 		else:
-			for i in range(self.rank):
-				row += str(self.numbers[i]) + ' '
+			if type(self[0]) == Martix:
+				for i in range(self.rank):
+					tmp = ''
+					for j in range(self[i].rank):
+						tmp += str(self[i].numbers[j]) + ' '
+					row += tmp + '\n'
+				pass	
+			else:
+				for i in range(self.rank):
+					row += str(self.numbers[i]) + ' '
 		return row
 
 	def __getitem__(self, key):
@@ -34,10 +46,22 @@ class Martix:
 		return Martix(temp, isextend=self.isextend)
 
 	def __mul__(self, other):
-		temp = []
-		for i in range(self.rank):
-			temp.append(self[i] * other)
-		return Martix(temp, isextend=self.isextend)
+		if type(self) == Martix and type(self[0]) == Martix:
+			numbers = []
+			for i in range(self.rank):
+				number = []
+				for j in range(self[i].rank):
+					tmpNumber = Fraction(0, 1)
+					for k in range(self[i].rank):
+						tmpNumber += self[i][k] * other[k][j]
+					number.append(tmpNumber)
+				numbers.append(Martix(number, isextend = self[i].isextend))
+			return Martix(numbers, isextend = self.isextend)
+		else:
+			temp = []
+			for i in range(self.rank):
+				temp.append(self[i] * other)
+			return Martix(temp, isextend=self.isextend)
 
 	def __ne__(self, other):
 		for i in range(self.rank):

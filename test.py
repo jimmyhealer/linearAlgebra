@@ -1,9 +1,10 @@
-n = 30000
-p = 0.03
-t = 0
+from tools.martix import Martix
+from tools.tool import inputMartix
 
-for i in range(60):
-  t += (t + n) * p
-  if i <= 20:
-    t += n
-  print(t, t - n * (20 if (i + 1) > 20 else (i + 1))) 
+def test_martix():
+  m1 = inputMartix(2)
+  m2 = inputMartix(2)
+  print(m1 * m2)
+
+if __name__ == '__main__':
+  test_martix()
