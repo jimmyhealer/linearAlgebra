@@ -29,25 +29,4 @@ if __name__ == '__main__':
       martix2 = inputMartix(rank, display=display, displayText='input: ')
       print('result: %s' % 'similar' if isabequalba(martix, martix2, rank=rank) else 'unsimilar')
 
-
-    elif problem == 4:
-      def d(m):
-        return m[1][0] != m[0][1]
-
-      while 1:
-        m1 = inputMartix(2)
-        if d(m1): print('A不是對稱矩陣')
-        else : break
-      
-      while 1:
-        m2 = inputMartix(2)
-        if d(m2): print('B不是對稱矩陣')
-        else : break
-
-      if d(m1 * m2): print('AB 不是對稱矩陣')
-      else:
-        if(m1 * m2 == m2 * m1):
-          print('AB != BA')
-        else:
-          print('AB == BA')
     print()      

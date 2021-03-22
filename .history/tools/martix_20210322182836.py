@@ -48,14 +48,17 @@ class Martix:
 	def __mul__(self, other):
 		if type(self) == Martix and type(self[0]) == Martix:
 			numbers = []
+			ans = 0
 			for i in range(self.rank):
 				number = []
 				for j in range(self[i].rank):
 					tmpNumber = Fraction(0, 1)
 					for k in range(self[i].rank):
+						ans += 1
 						tmpNumber += self[i][k] * other[k][j]
 					number.append(tmpNumber)
 				numbers.append(Martix(number, isextend = self[i].isextend))
+			print(ans)
 			return Martix(numbers, isextend = self.isextend)
 		else:
 			temp = []

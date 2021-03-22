@@ -21,7 +21,7 @@ def inputMartix(rank: int, display=False, displayText=None, isextend=False):
           number.append(Fraction(tempnumber[0], tempnumber[1]))
       else:
         number.append(Fraction(int(i.split('/')[0]), 1))
-    numbers.append(Martix(number, isextend = isextend))
+    numbers.append(number)
   martix = Martix(numbers, isextend=isextend)
   
   if display:

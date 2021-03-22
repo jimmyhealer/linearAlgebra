@@ -49,5 +49,5 @@ if __name__ == '__main__':
         if(m1 * m2 == m2 * m1):
           print('AB != BA')
         else:
-          print('AB == BA')
+          print('AB !== BA')
     print()      

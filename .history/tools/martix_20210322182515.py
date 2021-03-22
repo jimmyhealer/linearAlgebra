@@ -1,5 +1,3 @@
-from tools.fraction import Fraction
-
 class Martix:
 	def __init__(self, numbers, isextend=False):
 		self.numbers = numbers
@@ -48,14 +46,17 @@ class Martix:
 	def __mul__(self, other):
 		if type(self) == Martix and type(self[0]) == Martix:
 			numbers = []
+			ans = 0
 			for i in range(self.rank):
 				number = []
 				for j in range(self[i].rank):
-					tmpNumber = Fraction(0, 1)
+					tmpNumber = 0
 					for k in range(self[i].rank):
-						tmpNumber += self[i][k] * other[k][j]
-					number.append(tmpNumber)
+						ans += 1
+						tmpNumber += self[i][k] * self[k][j]
+						number.append(self[i][k] * self[k][j])
 				numbers.append(Martix(number, isextend = self[i].isextend))
+			print(ans)
 			return Martix(numbers, isextend = self.isextend)
 		else:
 			temp = []

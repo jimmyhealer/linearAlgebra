@@ -4,31 +4,30 @@ from tools.tool import printMartix, Plug
 
 
 def gaussJordan(martix):
-  # for i in range(len(martix)):
-  #   extend = []
-  #   for j in range(len(martix)):
-  #     if i == j:
-  #       extend.append(Plug.one)
-  #     else:
-  #       extend.append(Plug.zero)
-  #   martix[i].extend(extend)
+  for i in range(len(martix)):
+    extend = []
+    for j in range(len(martix)):
+      if i == j:
+        extend.append(Plug.one)
+      else:
+        extend.append(Plug.zero)
+    martix[i].extend(extend)
 
-  print(martix)
   # process
-  # for i in range(1, 3):
-  #   martix[i] = martix[i] * (-martix[0][0] / martix[i][0]) + martix[0]
+  for i in range(1, 3):
+    martix[i] = martix[i] * (-martix[0][0] / martix[i][0]) + martix[0]
 
-  # martix[2] = martix[2] * (-martix[1][1] / martix[2][1]) + martix[1]
+  martix[2] = martix[2] * (-martix[1][1] / martix[2][1]) + martix[1]
   
-  # for i in range(3):
-  #   martix[i] = martix[i] * (Plug.one / martix[i][i])
+  for i in range(3):
+    martix[i] = martix[i] * (Plug.one / martix[i][i])
 
-  # for i in range(2):
-  #   martix[i] = martix[2] * (-martix[i][2] / martix[2][2]) + martix[i]
+  for i in range(2):
+    martix[i] = martix[2] * (-martix[i][2] / martix[2][2]) + martix[i]
 
-  # martix[0] = martix[1] * (-martix[0][1] / martix[1][1]) + martix[0]
+  martix[0] = martix[1] * (-martix[0][1] / martix[1][1]) + martix[0]
 
-  # printMartix(martix)
+  printMartix(martix)
 
 
 def inverse(martix):

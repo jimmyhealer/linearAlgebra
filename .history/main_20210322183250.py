@@ -44,10 +44,4 @@ if __name__ == '__main__':
         if d(m2): print('B不是對稱矩陣')
         else : break
 
-      if d(m1 * m2): print('AB 不是對稱矩陣')
-      else:
-        if(m1 * m2 == m2 * m1):
-          print('AB != BA')
-        else:
-          print('AB == BA')
     print()      
