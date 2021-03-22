@@ -33,7 +33,7 @@ if __name__ == '__main__':
     elif problem == 4:
       def d(m):
         return m[1][0] != m[0][1]
-
+ 
       while 1:
         m1 = inputMartix(2)
         if d(m1): print('A不是對稱矩陣')
