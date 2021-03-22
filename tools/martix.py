@@ -62,11 +62,19 @@ class Martix:
 			for i in range(self.rank):
 				temp.append(self[i] * other)
 			return Martix(temp, isextend=self.isextend)
-
-	def __ne__(self, other):
+			
+	def __eq__(self, other) -> bool:
 		for i in range(self.rank):
-			if not self.numbers[i] == other.numbers[i]:
-				return 1
+			for j in range(self[i].rank):
+				if self[i][j] != other[i][j]:
+					return 0
+		return 1
+
+	def __ne__(self, other) -> bool:
+		for i in range(self.rank):
+			for j in range(self[i].rank):
+				if self[i][j] != other[i][j]:
+					return 1
 		return 0
 
 	def __print__(self):
